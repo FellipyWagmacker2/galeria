@@ -1,8 +1,10 @@
-package silva.pereira.galeria;
+package pereira.silva.lista.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import silva.pereira.galeria.R;
 
 public class NewItemActivity extends AppCompatActivity {
 

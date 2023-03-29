@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">galeria</string>
     <string name="et_plain_hint"> Título </string>
+    <string name="et_plain2_hint"> Descrição </string>
 </resources>

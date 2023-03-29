@@ -8,12 +8,10 @@
 
     <ImageView
         android:id="@+id/imvPhotoPreview"
-        android:layout_width="0dp"
-        android:layout_height="300dp"
+        android:layout_width="355dp"
+        android:layout_height="247dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
@@ -22,15 +20,19 @@
         android:id="@+id/imbCl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnAddItem"
+        app:layout_constraintEnd_toStartOf="@+id/etDesc"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imvPhotoPreview"
+        app:layout_constraintVertical_bias="0.153"
         app:srcCompat="@android:drawable/ic_menu_gallery" />
 
     <EditText
         android:id="@+id/etTitle"
-        android:layout_width="397dp"
+        android:layout_width="357dp"
         android:layout_height="54dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -40,33 +42,37 @@
         android:inputType="textPersonName"
         android:textColorHint="@color/pink"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imbCl" />
+        app:layout_constraintStart_toEndOf="@+id/imvPhotoPreview"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/etDesc"
-        android:layout_width="400dp"
-        android:layout_height="214dp"
-        android:layout_marginStart="8dp"
+        android:layout_width="357dp"
+        android:layout_height="254dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:ems="10"
         android:gravity="top"
         android:hint="@string/et_plain2_hint"
         android:inputType="textPersonName"
         android:textColorHint="@color/pink"
+        app:layout_constraintBottom_toTopOf="@+id/btnAddItem"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etTitle" />
+        app:layout_constraintHorizontal_bias="0.541"
+        app:layout_constraintStart_toEndOf="@+id/imvPhotoPreview"
+        app:layout_constraintTop_toBottomOf="@+id/etTitle"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/btnAddItem"
-        android:layout_width="201dp"
-        android:layout_height="52dp"
+        android:layout_width="715dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:text="ADICIONAR ITEM"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etDesc" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
