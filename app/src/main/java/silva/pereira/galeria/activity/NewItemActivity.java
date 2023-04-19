@@ -2,6 +2,7 @@ package silva.pereira.galeria.activity;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -15,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import silva.pereira.galeria.R;
+import silva.pereira.galeria.model.NewItemActivityViewModel;
 
 public class NewItemActivity extends AppCompatActivity {
     static int PHOTO_PICKER_REQUEST = 1; // Variável do tipo inteiro
@@ -24,6 +26,14 @@ public class NewItemActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_item);
+
+        NewItemActivityViewModel vm = new ViewModelProvider(this).get(NewItemActivityViewModel.class); // Obtendo o ViewModel referente a NewItemActivity
+
+        Uri photoSelected = vm.getSelectPhotoLocation(); // Obtendo o endereço da URI que esta dentro do ViewModel
+        if(photoSelected != null){ // Se o endereço for diferente de nulo
+            ImageView imvPhotoPreview = findViewById(R.id.imvPhotoPreview); // Obtendo a imagem
+            imvPhotoPreview.setImageURI(photoSelected); // Setando a Imagem no ImageView
+        }
 
         ImageButton imgCI = findViewById(R.id.imbCI); // Obtendo o ImageButton
         imgCI.setOnClickListener(new View.OnClickListener() { // Definindo o ouvidor de clicks
@@ -80,6 +90,9 @@ public class NewItemActivity extends AppCompatActivity {
                 photoSelected = data.getData(); // Se as condições forem verdadeiras, obtemos o resultado
                 ImageView imvPhotoPreview = findViewById(R.id.imvPhotoPreview); // Obtendo a ImageView
                 imvPhotoPreview.setImageURI(photoSelected); // Setando a imagem da URI
+
+                NewItemActivityViewModel vm = new ViewModelProvider(this).get(NewItemActivityViewModel.class); // Obtendo o ViewModel
+                vm.setSelectPhotoLocation(photoSelected); // Guardando o endereço URI da imagem
 
             }
         }
