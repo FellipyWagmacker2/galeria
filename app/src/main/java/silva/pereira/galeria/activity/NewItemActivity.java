@@ -20,7 +20,6 @@ import silva.pereira.galeria.model.NewItemActivityViewModel;
 
 public class NewItemActivity extends AppCompatActivity {
     static int PHOTO_PICKER_REQUEST = 1; // Variável do tipo inteiro
-    Uri photoSelected = null; // Guardando o endereço da foto selecionada
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +50,8 @@ public class NewItemActivity extends AppCompatActivity {
         btnAddItem.setOnClickListener(new View.OnClickListener() { // Setando ouvidor de clicks
             @Override
             public void onClick(View view) {
+
+                Uri photoSelected = vm.getSelectPhotoLocation(); // Obtendo o endereço da URI que esta dentro do ViewModel
 
                 if (photoSelected == null){ // Verificando se os campos foram preenchidos
                     Toast.makeText(NewItemActivity.this, "È necessário selecionar uma imagem!", Toast.LENGTH_LONG).show(); // Mensagem de erro
@@ -87,7 +88,7 @@ public class NewItemActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == PHOTO_PICKER_REQUEST) { // Verificando se requestCode é referente ao fornecido na chamada startActiviyForResul
             if(resultCode == Activity.RESULT_OK) { // Verificando se o resultCode é verdadeiro
-                photoSelected = data.getData(); // Se as condições forem verdadeiras, obtemos o resultado
+                Uri photoSelected = data.getData(); // Se as condições forem verdadeiras, obtemos o resultado
                 ImageView imvPhotoPreview = findViewById(R.id.imvPhotoPreview); // Obtendo a ImageView
                 imvPhotoPreview.setImageURI(photoSelected); // Setando a imagem da URI
 
